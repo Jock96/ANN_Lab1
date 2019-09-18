@@ -13,3 +13,5 @@ C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\obj\
 C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\obj\Debug\FC.UI.csproj.CoreCompileInputs.cache
 C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\obj\Debug\FC.UI.exe
 C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\obj\Debug\FC.UI.pdb
+C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\bin\Debug\FC.BL.dll
+C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\bin\Debug\FC.BL.pdb

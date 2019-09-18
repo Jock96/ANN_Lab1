@@ -7,8 +7,38 @@
         xmlns:viewModels="clr-namespace:FC.UI.ViewModels"
         mc:Ignorable="d"
         d:DataContext ="{d:DesignInstance Type=viewModels:MainWindowVM, IsDesignTimeCreatable=False}"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Предсказание курса EUR/USD" Height="350" Width="525"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.25*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Row="2" Grid.Column="0" Content="Загрузить данные"
+                Margin="10,5" Command="{Binding LoadDataCommand}"
+                CommandParameter="{Binding}"/>
+        <Button Grid.Row="2" Grid.Column="1" Content="Обучить"
+                Margin="10,5" Command="{Binding TrainNetworkCommand}"
+                CommandParameter="{Binding}"/>
+        <Button Grid.Row="2" Grid.Column="2" Content="Сохранить веса"
+                Margin="10,5" Command="{Binding SaveWeightsCommand}"
+                CommandParameter="{Binding}"/>
+        <Button Grid.Row="2" Grid.Column="2" Content="Сохранить веса"
+                Margin="10,5" Command="{Binding SaveWeightsCommand}"
+                CommandParameter="{Binding}"/>
+        <Button Grid.Row="2" Grid.Column="3" Content="Загрузить веса"
+                Margin="10,5" Command="{Binding LoadWeightsCommand}"
+                CommandParameter="{Binding}"/>
+        <Button Grid.Row="2" Grid.Column="4" Content="Предсказать"
+                Margin="10,5" Command="{Binding ForeCastCommand}"
+                CommandParameter="{Binding}"/>
     </Grid>
 </Window>

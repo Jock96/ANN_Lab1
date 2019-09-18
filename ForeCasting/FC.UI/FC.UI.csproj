@@ -56,6 +56,11 @@
     </ApplicationDefinition>
     <Compile Include="Commands\BaseCommand.cs" />
     <Compile Include="Commands\BaseTCommand.cs" />
+    <Compile Include="Commands\ForeCastCommand.cs" />
+    <Compile Include="Commands\LoadDataCommand.cs" />
+    <Compile Include="Commands\LoadWeightsCommand.cs" />
+    <Compile Include="Commands\SaveWeightsCommand.cs" />
+    <Compile Include="Commands\TrainNetworkCommand.cs" />
     <Compile Include="ViewModels\BaseVM.cs" />
     <Compile Include="ViewModels\MainWindowVM.cs" />
     <Page Include="MainWindow.xaml">
@@ -96,6 +101,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FC.BL\FC.BL.csproj">
+      <Project>{f9a75d2e-763e-4c6a-96f6-2e4ebead05d0}</Project>
+      <Name>FC.BL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
