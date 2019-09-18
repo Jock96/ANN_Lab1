@@ -2,6 +2,8 @@
 {
     using FC.BL.Constants;
     using FC.Core.Layers;
+    using FC.Core.Models;
+    using FC.Core.Utils;
     using FC.UI.ViewModels;
     using System.Collections.Generic;
     using System.Linq;
@@ -26,6 +28,38 @@
                 return;
             }
 
+            var alphaString = string.Empty;
+            var epsilonString = string.Empty;
+            var epochCountString = parameter.EpochCount;
+
+            if (parameter.Alpha.Contains("."))
+                alphaString = parameter.Alpha.Replace(".", ",");
+            else
+                alphaString = parameter.Alpha;
+
+            if (!double.TryParse(alphaString, out var alpha))
+            {
+                MessageBox.Show("Параметры имеют неверный формат!");
+                return;
+            }
+
+            if (parameter.Epsilon.Contains("."))
+                epsilonString = parameter.Epsilon.Replace(".", ",");
+            else
+                epsilonString = parameter.Epsilon;
+
+            if (!double.TryParse(epsilonString, out var epsilon))
+            {
+                MessageBox.Show("Параметры имеют неверный формат!");
+                return;
+            }
+
+            if (!int.TryParse(epochCountString, out var epochCount))
+            {
+                MessageBox.Show("Параметры имеют неверный формат!");
+                return;
+            }
+
             var countOfLayerNeurons = int.Parse(parameter.CountOfHiddenLayerNeurons);
             var firstSetData = GetFirstStepData(parameter);
 
@@ -43,6 +77,15 @@
             outputLyer.Initialize();
 
             var listOfNeurons = new List<Layer> { hiddenLayer, outputLyer };
+
+            var configuration = new ConfigurationModel()
+            {
+                Alpha = alpha,
+                Epsilon = epsilon,
+                EpochCount = epochCount
+            };
+
+            var learningUtil = new LearningUtil(allSets,  listOfNeurons, configuration);
         }
 
         /// <summary>

@@ -9,7 +9,8 @@
         mc:Ignorable="d"
         d:DataContext ="{d:DesignInstance Type=viewModels:MainWindowVM, IsDesignTimeCreatable=False}"
         Title="Предсказание курса EUR/USD" Height="350" Width="525"
-        WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        ResizeMode="CanMinimize" Background="Gray">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -25,29 +26,72 @@
         </Grid.ColumnDefinitions>
         <Button Grid.Row="2" Grid.Column="0" Content="Загрузить данные"
                 Margin="10,5" Command="{Binding LoadDataCommand}"
-                CommandParameter="{Binding}"/>
+                CommandParameter="{Binding}" Background="Gray"/>
         <Button Grid.Row="2" Grid.Column="1" Content="Обучить"
                 Margin="10,5" Command="{Binding TrainNetworkCommand}"
-                CommandParameter="{Binding}"/>
+                CommandParameter="{Binding}" Background="Gray"/>
         <Button Grid.Row="2" Grid.Column="2" Content="Сохранить веса"
                 Margin="10,5" Command="{Binding SaveWeightsCommand}"
-                CommandParameter="{Binding}"/>
+                CommandParameter="{Binding}" Background="Gray"/>
         <Button Grid.Row="2" Grid.Column="2" Content="Сохранить веса"
                 Margin="10,5" Command="{Binding SaveWeightsCommand}"
-                CommandParameter="{Binding}"/>
+                CommandParameter="{Binding}" Background="Gray"/>
         <Button Grid.Row="2" Grid.Column="3" Content="Загрузить веса"
                 Margin="10,5" Command="{Binding LoadWeightsCommand}"
-                CommandParameter="{Binding}"/>
+                CommandParameter="{Binding}" Background="Gray"/>
         <Button Grid.Row="2" Grid.Column="4" Content="Предсказать"
                 Margin="10,5" Command="{Binding ForeCastCommand}"
-                CommandParameter="{Binding}"/>
-        <ComboBox Grid.Row="1" Grid.Column="4" 
+                CommandParameter="{Binding}" Background="Gray"/>
+        <Grid Grid.Row="0" Grid.Column="4">
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Количество эпох:"
+                   Margin="5" VerticalAlignment="Center" 
+                   HorizontalContentAlignment="Left"
+                   VerticalContentAlignment="Center"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Скорость обучения:"
+                   Margin="5" VerticalAlignment="Center" 
+                   HorizontalContentAlignment="Left"
+                   VerticalContentAlignment="Center"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Момент:"
+                   Margin="5" VerticalAlignment="Center" 
+                   HorizontalContentAlignment="Left"
+                   VerticalContentAlignment="Center"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Margin="5,25"
+                     VerticalAlignment="Center" Text="{Binding EpochCount}"
+                     HorizontalContentAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="5,25"
+                     VerticalAlignment="Center" Text="{Binding Epsilon}"
+                     HorizontalContentAlignment="Center"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Margin="5,25"
+                     VerticalAlignment="Center" Text="{Binding Alpha}"
+                     HorizontalContentAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Margin="5,125,5,0" Content="Нейроны скрытого слоя:"
+                   Background="White" Opacity="0.5" VerticalContentAlignment="Center"
+                   HorizontalContentAlignment="Center"/>
+            <ComboBox Grid.Row="1"
                   ItemsSource="{Binding CountOfHiddenLayerNeuronsList}" 
                   Text="{Binding CountOfHiddenLayerNeurons}" VerticalAlignment="Center"
                   VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
-                  Margin="5,0,5,100"/>
-        <lvc:CartesianChart Grid.ColumnSpan="5" Grid.RowSpan="2" Panel.ZIndex="-1"
-                            Background="Black" Opacity="0.75">
+                  Margin="5,0,5,100" Panel.ZIndex="1" Opacity="0.75"/>
+        </Grid>
+        <lvc:CartesianChart Grid.ColumnSpan="4" Grid.RowSpan="2" Panel.ZIndex="-1"
+                            Background="Black">
             <lvc:CartesianChart.Series>
                 <lvc:LineSeries Title="EUR/USD:" Values="{Binding LineValues}"/>
             </lvc:CartesianChart.Series>

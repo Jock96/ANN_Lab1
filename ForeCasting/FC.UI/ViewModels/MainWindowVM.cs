@@ -1,5 +1,6 @@
 ﻿namespace FC.UI.ViewModels
 {
+    using FC.Core.Models;
     using FC.UI.Commands;
     using LiveCharts;
     using LiveCharts.Wpf;
@@ -23,6 +24,68 @@
             ForeCastCommand = new ForeCastCommand();
 
             _countOfHiddenLayerNeurons = CountOfHiddenLayerNeuronsList.First();
+
+            var configuration = new ConfigurationModel();
+
+            _epochCount = configuration.EpochCount.ToString();
+            _epsilon = configuration.Epsilon.ToString();
+            _alpha = configuration.Alpha.ToString();
+        }
+
+        #region Настройки нейронной сети.
+
+        /// <summary>
+        /// Момент.
+        /// </summary>
+        private string _alpha;
+
+        /// <summary>
+        /// Момент.
+        /// </summary>
+        public string Alpha
+        {
+            get => _alpha;
+            set
+            {
+                _alpha = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Скорость обучения.
+        /// </summary>
+        private string _epsilon;
+
+        /// <summary>
+        /// Скорость обучения.
+        /// </summary>
+        public string Epsilon
+        {
+            get => _epsilon;
+            set
+            {
+                _epsilon = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Количество эпох.
+        /// </summary>
+        private string _epochCount;
+
+        /// <summary>
+        /// Количество эпох.
+        /// </summary>
+        public string EpochCount
+        {
+            get => _epochCount;
+            set
+            {
+                _epochCount = value;
+                OnPropertyChanged();
+            }
         }
 
         /// <summary>
@@ -47,6 +110,8 @@
                 OnPropertyChanged();
             }
         }
+
+        #endregion
 
         #region Данные графика.
 
