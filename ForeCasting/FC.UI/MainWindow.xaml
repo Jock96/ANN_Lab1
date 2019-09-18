@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FC.UI"
         xmlns:viewModels="clr-namespace:FC.UI.ViewModels"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         d:DataContext ="{d:DesignInstance Type=viewModels:MainWindowVM, IsDesignTimeCreatable=False}"
         Title="Предсказание курса EUR/USD" Height="350" Width="525"
@@ -40,5 +41,22 @@
         <Button Grid.Row="2" Grid.Column="4" Content="Предсказать"
                 Margin="10,5" Command="{Binding ForeCastCommand}"
                 CommandParameter="{Binding}"/>
+        <ComboBox Grid.Row="1" Grid.Column="4" 
+                  ItemsSource="{Binding CountOfHiddenLayerNeuronsList}" 
+                  Text="{Binding CountOfHiddenLayerNeurons}" VerticalAlignment="Center"
+                  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                  Margin="5,0,5,100"/>
+        <lvc:CartesianChart Grid.ColumnSpan="5" Grid.RowSpan="2" Panel.ZIndex="-1"
+                            Background="Black" Opacity="0.75">
+            <lvc:CartesianChart.Series>
+                <lvc:LineSeries Title="EUR/USD:" Values="{Binding LineValues}"/>
+            </lvc:CartesianChart.Series>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis MinValue="0" MaxValue="2"/>
+            </lvc:CartesianChart.AxisY>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis MinValue="0" MaxValue="7" Title="День"/>
+            </lvc:CartesianChart.AxisX>
+        </lvc:CartesianChart>
     </Grid>
 </Window>

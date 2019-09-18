@@ -56,7 +56,7 @@
 
             } while (!breakFlag);
 
-            return Normilize(data);
+            return data;
         }
 
         /// <summary>
@@ -64,7 +64,7 @@
         /// </summary>
         /// <param name="data">Данные.</param>
         /// <returns>Возвращает нормализованные данные.</returns>
-        private static List<double> Normilize(List<double> data)
+        public static List<double> Normilize(List<double> data)
         {
             var normilizedData = new List<double>();
 

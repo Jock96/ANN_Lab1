@@ -4,12 +4,13 @@
     using FC.BL.Helpers;
     using FC.BL.Utils;
     using FC.UI.ViewModels;
-
+    using LiveCharts;
+    using LiveCharts.Wpf;
     using Microsoft.Win32;
     using System;
-    using System.IO;
     using System.Text;
     using System.Windows;
+    using System.Windows.Media;
 
     /// <summary>
     /// Загрузить данные.
@@ -45,7 +46,8 @@
                     var valueString = Encoding.Default.GetString(array);
                     var dataList = DataConverterUtil.ConvertStringToDataList(valueString);
 
-                    parameter.ChartData = dataList;
+                    parameter.NormilizedData = DataConverterUtil.Normilize(dataList);
+                    parameter.LineValues = new ChartValues<double>(dataList);
                 }
             }
             catch (Exception exception)

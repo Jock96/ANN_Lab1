@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Constants\DataConstants.cs" />
     <Compile Include="Constants\PathConstants.cs" />
+    <Compile Include="Constants\TrainingConstants.cs" />
     <Compile Include="Enums\LayerType.cs" />
     <Compile Include="Helpers\PathHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

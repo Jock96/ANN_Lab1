@@ -1,7 +1,10 @@
 ﻿namespace FC.UI.ViewModels
 {
     using FC.UI.Commands;
+    using LiveCharts;
+    using LiveCharts.Wpf;
     using System.Collections.Generic;
+    using System.Linq;
 
     /// <summary>
     /// Вью-модель окна.
@@ -18,26 +21,72 @@
             LoadWeightsCommand = new LoadWeightsCommand();
             SaveWeightsCommand = new SaveWeightsCommand();
             ForeCastCommand = new ForeCastCommand();
+
+            _countOfHiddenLayerNeurons = CountOfHiddenLayerNeuronsList.First();
         }
 
+        /// <summary>
+        /// Количество нейронов скрытого слоя.
+        /// </summary>
+        public List<string> CountOfHiddenLayerNeuronsList { get; } = new List<string> { "0", "10", "30" };
 
         /// <summary>
-        /// Данные для графика.
+        /// Количество нейронов скрытого слоя.
         /// </summary>
-        private List<double> _chartData;
+        private string _countOfHiddenLayerNeurons;
 
         /// <summary>
-        /// Данные для графика.
+        /// Количество нейронов скрытого слоя.
         /// </summary>
-        public List<double> ChartData
+        public string CountOfHiddenLayerNeurons
         {
-            get => _chartData;
+            get => _countOfHiddenLayerNeurons;
             set
             {
-                _chartData = value;
+                _countOfHiddenLayerNeurons = value;
                 OnPropertyChanged();
             }
         }
+
+        #region Данные графика.
+
+        /// <summary>
+        /// Линия графика.
+        /// </summary>
+        private ChartValues<double> _lineValues;
+
+        /// <summary>
+        /// Линия графика.
+        /// </summary>
+        public ChartValues<double> LineValues
+        {
+            get => _lineValues;
+            set
+            {
+                _lineValues = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Нормализованные данные.
+        /// </summary>
+        private List<double> _normilizedData = new List<double>();
+
+        /// <summary>
+        /// Нормализованные данные.
+        /// </summary>
+        public List<double> NormilizedData
+        {
+            get => _normilizedData;
+            set
+            {
+                _normilizedData = value;
+                OnPropertyChanged();
+            }
+        }
+
+        #endregion
 
         #region Команды.
 

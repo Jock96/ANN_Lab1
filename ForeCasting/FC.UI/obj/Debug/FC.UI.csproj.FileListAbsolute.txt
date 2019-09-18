@@ -15,3 +15,11 @@ C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\obj\
 C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\obj\Debug\FC.UI.pdb
 C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\bin\Debug\FC.BL.dll
 C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\bin\Debug\FC.BL.pdb
+C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\bin\Debug\FC.Core.dll
+C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\bin\Debug\FC.Core.pdb
+C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\bin\Debug\LiveCharts.dll
+C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\bin\Debug\LiveCharts.Wpf.dll
+C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\bin\Debug\LiveCharts.pdb
+C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\bin\Debug\LiveCharts.xml
+C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\bin\Debug\LiveCharts.Wpf.pdb
+C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\bin\Debug\LiveCharts.Wpf.xml
