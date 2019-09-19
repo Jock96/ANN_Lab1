@@ -48,6 +48,8 @@
 
             parameter.PercentLabelVisibility = Visibility.Visible;
             parameter.ErrorByPercentString = $"Ошибка в предсказании: {errorInPercentString}";
+
+            var layersData = LoadDataUtil.LoadLayersData(directory);
         }
     }
 }
