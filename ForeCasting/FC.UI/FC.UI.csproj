@@ -64,8 +64,6 @@
     <Compile Include="Commands\BaseTCommand.cs" />
     <Compile Include="Commands\ForeCastCommand.cs" />
     <Compile Include="Commands\LoadDataCommand.cs" />
-    <Compile Include="Commands\LoadWeightsCommand.cs" />
-    <Compile Include="Commands\SaveWeightsCommand.cs" />
     <Compile Include="Commands\TrainNetworkCommand.cs" />
     <Compile Include="ViewModels\BaseVM.cs" />
     <Compile Include="ViewModels\MainWindowVM.cs" />
@@ -119,7 +117,9 @@
       <Name>FC.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\Last saves\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Data\Week.txt" />
   </ItemGroup>

@@ -6,6 +6,7 @@
     using LiveCharts.Wpf;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Windows;
 
     /// <summary>
     /// Вью-модель окна.
@@ -19,9 +20,9 @@
         {
             LoadDataCommand = new LoadDataCommand();
             TrainNetworkCommand = new TrainNetworkCommand();
-            LoadWeightsCommand = new LoadWeightsCommand();
-            SaveWeightsCommand = new SaveWeightsCommand();
             ForeCastCommand = new ForeCastCommand();
+
+            _percentLabelVisibility = Visibility.Hidden;
 
             _countOfHiddenLayerNeurons = CountOfHiddenLayerNeuronsList.First();
 
@@ -116,6 +117,42 @@
         #region Данные графика.
 
         /// <summary>
+        /// Флаг прогноза.
+        /// </summary>
+        private Visibility _percentLabelVisibility;
+
+        /// <summary>
+        /// Флаг прогноза.
+        /// </summary>
+        public Visibility PercentLabelVisibility
+        {
+            get => _percentLabelVisibility;
+            set
+            {
+                _percentLabelVisibility = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Строковое представление процента ошибки.
+        /// </summary>
+        private string _errorByPercentString;
+
+        /// <summary>
+        /// Строковое представление процента ошибки.
+        /// </summary>
+        public string ErrorByPercentString
+        {
+            get => _errorByPercentString;
+            set
+            {
+                _errorByPercentString = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
         /// Линия графика.
         /// </summary>
         private ChartValues<double> _lineValues;
@@ -164,16 +201,6 @@
         /// Обучить сеть.
         /// </summary>
         public TrainNetworkCommand TrainNetworkCommand { get; set; }
-        
-        /// <summary>
-        /// Загрузить веса.
-        /// </summary>
-        public LoadWeightsCommand LoadWeightsCommand { get; set; }
-
-        /// <summary>
-        /// Сохранить веса.
-        /// </summary>
-        public SaveWeightsCommand SaveWeightsCommand { get; set; }
 
         /// <summary>
         /// Предсказать

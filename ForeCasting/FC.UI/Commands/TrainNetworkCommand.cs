@@ -2,6 +2,7 @@
 {
     using FC.Core.Models;
     using FC.Core.Utils;
+
     using FC.UI.ViewModels;
 
     using System.Linq;
@@ -26,6 +27,15 @@
                 return;
             }
 
+            var countOfLayerNeurons = int.Parse(parameter.CountOfHiddenLayerNeurons);
+
+            if (countOfLayerNeurons.Equals(0))
+            {
+                MessageBox.Show("Операция для 0 нейронов не реализована.");
+
+                return;
+            }
+
             var alphaString = string.Empty;
             var epsilonString = string.Empty;
             var epochCountString = parameter.EpochCount;
@@ -37,7 +47,9 @@
 
             if (!double.TryParse(alphaString, out var alpha))
             {
-                MessageBox.Show("Параметры имеют неверный формат!");
+                MessageBox.Show("Параметры имеют неверный формат!", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+
                 return;
             }
 
@@ -48,17 +60,19 @@
 
             if (!double.TryParse(epsilonString, out var epsilon))
             {
-                MessageBox.Show("Параметры имеют неверный формат!");
+                MessageBox.Show("Параметры имеют неверный формат!", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+
                 return;
             }
 
             if (!int.TryParse(epochCountString, out var epochCount))
             {
-                MessageBox.Show("Параметры имеют неверный формат!");
+                MessageBox.Show("Параметры имеют неверный формат!", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+
                 return;
             }
-
-            var countOfLayerNeurons = int.Parse(parameter.CountOfHiddenLayerNeurons);
 
             var configuration = new ConfigurationModel()
             {

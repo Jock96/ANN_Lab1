@@ -32,7 +32,8 @@
                         dataString = dataString.Replace(".", ",");
 
                     if (!double.TryParse(dataString, out var lastValue))
-                        MessageBox.Show("Не удалось преобразовать данные!");
+                        MessageBox.Show("Не удалось преобразовать данные!", "Ошибка", 
+                            MessageBoxButton.OK, MessageBoxImage.Error);
 
                     data.Add(lastValue);
 
@@ -47,7 +48,8 @@
                     preparedValueString = valueString.Replace(".", ",");
 
                 if (!double.TryParse(preparedValueString, out var value))
-                    MessageBox.Show("Не удалось преобразовать данные!");
+                    MessageBox.Show("Не удалось преобразовать данные!", "Ошибка",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
 
                 data.Add(value);
 
@@ -72,5 +74,19 @@
 
             return normilizedData;
         }
+
+        /// <summary>
+        /// Перевети в проценты.
+        /// </summary>
+        /// <param name="value">Значение.</param>
+        /// <returns>Возвращает точное значение в процентах.</returns>
+        public static int ToPercent(double value) => (int)(value * 100);
+
+        /// <summary>
+        /// Перевести в процентную строку.
+        /// </summary>
+        /// <param name="value">Значение.</param>
+        /// <returns>Возвращает строковое представление значения в процентах.</returns>
+        public static string ToPercentString(double value) => $"{ToPercent(value)}%";
     }
 }

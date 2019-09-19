@@ -105,6 +105,8 @@
             var outputLayer = (OutputLayer)_layers.Find(layer =>
                     layer.LayerType.Equals(LayerType.Output));
 
+            var errorDelta = 0d;
+
             for (var epochCount = 0; epochCount < _configuration.EpochCount; ++epochCount)
             {
                 for (var iterationIndex = 0; iterationIndex < _configuration.IterationsInEpochCount;
@@ -112,15 +114,19 @@
                 {
                     Backpropagation(hiddenLayer, outputLayer, iterationIndex);
 
-                    // TODO: расчёт ошибки.
+                    errorDelta += Math.Pow((_configuration.IdealResult - outputLayer.GetOutput), 2);
 
                     UpdateData(hiddenLayer, outputLayer, iterationIndex);
-
-                    // TODO: сохранение весов.
                 }
             }
 
-            MessageBox.Show("Сеть обучена.");
+            var errorByRootMSE = errorDelta / _configuration.EpochCount;
+
+            var result = MessageBox.Show("Сеть обучена. \nХотите сохранить веса?",
+                "Сохранение весов", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result.Equals(MessageBoxResult.Yes))
+                SaveDataUtil.Save(_layers, errorByRootMSE);
         }
 
         /// <summary>

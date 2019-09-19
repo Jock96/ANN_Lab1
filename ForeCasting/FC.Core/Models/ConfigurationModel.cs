@@ -8,7 +8,7 @@
         /// <summary>
         /// Количество эпох.
         /// </summary>
-        public int EpochCount { get; set; } = 1;
+        public int EpochCount { get; set; } = 100;
 
         /// <summary>
         /// Идеальный результат.
@@ -18,12 +18,12 @@
         /// <summary>
         /// Скорость обучения.
         /// </summary>
-        public double Epsilon { get; set; } = 0.1;
+        public double Epsilon { get; set; } = 10;
 
         /// <summary>
         /// Момент.
         /// </summary>
-        public double Alpha { get; set; } = 0.1;
+        public double Alpha { get; set; } = 3;
 
         /// <summary>
         /// Количество итераций в одной эпохе.

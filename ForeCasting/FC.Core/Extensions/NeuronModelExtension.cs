@@ -21,7 +21,9 @@
         {
             if (neuronModel.Weights.Count != weights.Count)
             {
-                MessageBox.Show("Не соответствие по количеству весов!");
+                MessageBox.Show("Не соответствие по количеству весов!", "Ошибка", 
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+
                 return;
             }
 

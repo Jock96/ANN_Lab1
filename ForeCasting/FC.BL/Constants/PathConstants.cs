@@ -14,5 +14,10 @@
         /// Директория данных.
         /// </summary>
         public const string DATA_PATH = "\\Data";
+
+        /// <summary>
+        /// Директория последних сохранений.
+        /// </summary>
+        public const string SAVE_PATH = "\\Last saves";
     }
 }

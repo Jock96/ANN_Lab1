@@ -3,14 +3,16 @@
     using FC.BL.Constants;
     using FC.BL.Helpers;
     using FC.BL.Utils;
+
     using FC.UI.ViewModels;
+
     using LiveCharts;
-    using LiveCharts.Wpf;
+    
     using Microsoft.Win32;
+
     using System;
     using System.Text;
     using System.Windows;
-    using System.Windows.Media;
 
     /// <summary>
     /// Загрузить данные.
@@ -23,6 +25,7 @@
         /// <param name="parameter">Параметр.</param>
         protected override void Execute(MainWindowVM parameter)
         {
+            parameter.PercentLabelVisibility = Visibility.Hidden;
             var fullPath = $"{PathHelper.GetResourcesPath()}{PathConstants.DATA_PATH}";
 
             var fileDialog = new OpenFileDialog
