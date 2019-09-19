@@ -42,6 +42,16 @@
         }
 
         /// <summary>
+        /// Инициализировать для прогноза.
+        /// </summary>
+        /// <param name="weightsDictionary">Веса.</param>
+        public void SwitchToForeCast(List<double> weights)
+        {
+            _outputNeuron = new NeuronModel(_inputData, weights);
+            _output = _outputNeuron.Output;
+        }
+
+        /// <summary>
         /// Инициализировать выходной слой.
         /// </summary>
         public override void Initialize()

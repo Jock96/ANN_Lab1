@@ -47,6 +47,35 @@
         }
 
         /// <summary>
+        /// Инициализировать для прогноза.
+        /// </summary>
+        /// <param name="weightsDictionary">Словарь весов.</param>
+        public void SwitchToForeCast(Dictionary<int, List<double>> weightsDictionary)
+        {
+            _neurons = new List<NeuronModel>();
+            _output = new List<double>();
+
+            if (_countOfNeurons.Equals(0))
+            {
+                _output = _inputData;
+                return;
+            }
+
+            var neurons = new List<NeuronModel>();
+
+            for (var index = 0; index < _countOfNeurons; ++index)
+            {
+                var weights = weightsDictionary[index];
+                var neuron = new NeuronModel(_inputData, weights);
+
+                neurons.Add(neuron);
+            }
+
+            _neurons.AddRange(neurons);
+            _neurons.ForEach(neuron => _output.Add(neuron.Output));
+        }
+
+        /// <summary>
         /// Инициализация слоя.
         /// </summary>
         public override void Initialize()

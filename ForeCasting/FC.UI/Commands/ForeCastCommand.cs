@@ -3,8 +3,9 @@
     using FC.BL.Constants;
     using FC.BL.Helpers;
     using FC.BL.Utils;
-
+    using FC.Core.Utils;
     using FC.UI.ViewModels;
+    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Windows;
@@ -50,6 +51,12 @@
             parameter.ErrorByPercentString = $"Ошибка в предсказании: {errorInPercentString}";
 
             var layersData = LoadDataUtil.LoadLayersData(directory);
+
+            var startIndex = parameter.NormilizedData.Count - TrainingConstants.COUNT_OF_VALUES;
+            var preparedData = parameter.NormilizedData.GetRange(startIndex, TrainingConstants.COUNT_OF_VALUES);
+
+            var foreCastingUtil = new ForeCastUtil(layersData, preparedData);
+            var offset = foreCastingUtil.GetOffset();
         }
     }
 }

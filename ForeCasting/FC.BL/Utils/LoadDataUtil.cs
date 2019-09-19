@@ -136,7 +136,16 @@
                     indexOfSeparator = valueString.IndexOf(FileNamesConstants.SEPARATOR);
 
                     if (indexOfSeparator == -1)
+                    {
+                        if (!double.TryParse(valueString, out var lastValue))
+                        {
+                            MessageBox.Show("Ошибка преобразования данных!");
+                            return null;
+                        }
+
+                        values.Add(lastValue);
                         continue;
+                    }
 
                     var value = valueString.Remove(indexOfSeparator);
 
