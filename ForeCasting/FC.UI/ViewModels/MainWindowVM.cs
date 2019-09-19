@@ -91,7 +91,7 @@
         /// <summary>
         /// Количество нейронов скрытого слоя.
         /// </summary>
-        public List<string> CountOfHiddenLayerNeuronsList { get; } = new List<string> { "0", "10", "30" };
+        public List<string> CountOfHiddenLayerNeuronsList { get; } = new List<string> { "30", "10", "0" };
 
         /// <summary>
         /// Количество нейронов скрытого слоя.

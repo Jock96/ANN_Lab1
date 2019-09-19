@@ -6,8 +6,8 @@
     public static class TrainingConstants
     {
         /// <summary>
-        /// Смещение шага при подаче данных на входной слой.
+        /// Количество шагов при создании выборки.
         /// </summary>
-        public const int STEP_OFFSET = 1;
+        public const int COUNT_OF_VALUES = 4;
     }
 }

@@ -71,7 +71,7 @@
         public double Output { get => ActivationFunction(_inputs, _weights); }
 
         /// <summary>
-        /// Функция активации (Сигмоид).
+        /// Функция активации (Гиперболический тангенс).
         /// </summary>
         /// <param name="inputs">Входные данные.</param>
         /// <param name="weights">Веса.</param>
@@ -83,10 +83,10 @@
             for (int index = 0; index < inputs.Count; ++index)
                 summary += inputs[index] * weights[index];
 
-            //Гиперболический тангенс
-            //(Math.Exp(2 * summary) - 1) / (Math.Exp(2 * summary) + 1);
+            //Сигмоид
+            //Math.Pow(1 + Math.Exp(-summary), -1);
 
-            return Math.Pow(1 + Math.Exp(-summary), -1);
+            return (Math.Exp(2 * summary) - 1) / (Math.Exp(2 * summary) + 1);
         }
     }
 }
