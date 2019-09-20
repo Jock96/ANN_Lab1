@@ -19,7 +19,7 @@
         /// <param name="parameter">Параметр.</param>
         protected override void Execute(MainWindowVM parameter)
         {
-            if (!parameter.NormilizedData.Any())
+            if (!parameter.Data.Any())
             {
                 MessageBox.Show("Отсутвуют данные для обучения!\n" +
                     "Загрузите данные.");
@@ -81,7 +81,7 @@
                 EpochCount = epochCount
             };
 
-            var learningUtil = new LearningUtil(parameter.NormilizedData, countOfLayerNeurons, configuration);
+            var learningUtil = new LearningUtil(parameter.Data, countOfLayerNeurons, configuration);
             learningUtil.Start();
         }
     }

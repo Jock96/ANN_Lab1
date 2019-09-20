@@ -6,6 +6,7 @@
 
     using FC.Core.Layers;
     using System.Windows;
+    using FC.BL.Helpers;
 
     /// <summary>
     /// Инструмент прогнозирования.
@@ -77,7 +78,7 @@
                     continue;
 
                 var value = inputData[nextIndex] - inputData[index];
-                _data.Add(value);
+                _data.Add(MathFunctionsHelper.HTanFunction(value));
             }
         }
     }

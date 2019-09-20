@@ -31,6 +31,9 @@
             _epochCount = configuration.EpochCount.ToString();
             _epsilon = configuration.Epsilon.ToString();
             _alpha = configuration.Alpha.ToString();
+
+            _maxValue = 1;
+            _minValue = 0;
         }
 
         #region Настройки нейронной сети.
@@ -117,6 +120,60 @@
         #region Данные графика.
 
         /// <summary>
+        /// Минимальное значение графика.
+        /// </summary>
+        private double _minValue;
+
+        /// <summary>
+        /// Минимальное значение графика.
+        /// </summary>
+        public double MinValue
+        {
+            get => _minValue;
+            set
+            {
+                _minValue = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Максимальное значение графика.
+        /// </summary>
+        private double _maxValue;
+
+        /// <summary>
+        /// Максимальное значение графика.
+        /// </summary>
+        public double MaxValue
+        {
+            get => _maxValue;
+            set
+            {
+                _maxValue = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// Линии графика.
+        /// </summary>
+        public SeriesCollection _lines;
+
+        /// <summary>
+        /// Линии графика.
+        /// </summary>
+        public SeriesCollection Lines
+        {
+            get => _lines;
+            set
+            {
+                _lines = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
         /// Флаг прогноза.
         /// </summary>
         private Visibility _percentLabelVisibility;
@@ -153,32 +210,14 @@
         }
 
         /// <summary>
-        /// Линия графика.
-        /// </summary>
-        private ChartValues<double> _lineValues;
-
-        /// <summary>
-        /// Линия графика.
-        /// </summary>
-        public ChartValues<double> LineValues
-        {
-            get => _lineValues;
-            set
-            {
-                _lineValues = value;
-                OnPropertyChanged();
-            }
-        }
-
-        /// <summary>
-        /// Нормализованные данные.
+        /// Данные.
         /// </summary>
         private List<double> _normilizedData = new List<double>();
 
         /// <summary>
-        /// Нормализованные данные.
+        /// Данные.
         /// </summary>
-        public List<double> NormilizedData
+        public List<double> Data
         {
             get => _normilizedData;
             set

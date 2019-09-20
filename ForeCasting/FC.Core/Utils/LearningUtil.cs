@@ -8,6 +8,7 @@
     using System;
     using System.Windows;
     using FC.BL.Constants;
+    using FC.BL.Helpers;
 
     /// <summary>
     /// Инструмент обучения нейронной сети.
@@ -71,15 +72,17 @@
                         continue;
 
                     var value = currentData[nextIndex] - currentData[index];
-                    currentValues.Add(value);
+                    currentValues.Add(MathFunctionsHelper.HTanFunction(value));
                 }
 
                 _dataSets.Add(repeat, currentValues);
 
                 var lastDayValue = data[repeat + TrainingConstants.COUNT_OF_VALUES];
-                var lastCurrentValue = currentValues.Last();
+                var lastCurrentValue = currentData.Last();
 
-                _idealResults.Add(lastDayValue - lastCurrentValue);
+                var result = MathFunctionsHelper.HTanFunction(lastDayValue - lastCurrentValue);
+
+                _idealResults.Add(result);
             }
 
             _configuration.IterationsInEpochCount = _idealResults.Count;
@@ -112,10 +115,9 @@
                 for (var iterationIndex = 0; iterationIndex < _configuration.IterationsInEpochCount;
                     ++iterationIndex)
                 {
-                    Backpropagation(hiddenLayer, outputLayer, iterationIndex);
-
                     errorDelta += Math.Pow((_configuration.IdealResult - outputLayer.GetOutput), 2);
 
+                    Backpropagation(hiddenLayer, outputLayer, iterationIndex);
                     UpdateData(hiddenLayer, outputLayer, iterationIndex);
                 }
             }

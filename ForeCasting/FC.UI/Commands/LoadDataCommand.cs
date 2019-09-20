@@ -7,10 +7,11 @@
     using FC.UI.ViewModels;
 
     using LiveCharts;
-    
+    using LiveCharts.Wpf;
     using Microsoft.Win32;
 
     using System;
+    using System.Linq;
     using System.Text;
     using System.Windows;
 
@@ -49,8 +50,23 @@
                     var valueString = Encoding.Default.GetString(array);
                     var dataList = DataConverterUtil.ConvertStringToDataList(valueString);
 
-                    parameter.NormilizedData = DataConverterUtil.Normilize(dataList);
-                    parameter.LineValues = new ChartValues<double>(dataList);
+                    parameter.Data = dataList;
+
+                    parameter.MaxValue = parameter.Data.Max() + DataConstants.OFFSET;
+                    parameter.MinValue = parameter.Data.Min() - DataConstants.OFFSET;
+
+                    parameter.Lines = new SeriesCollection();
+
+                    var lineValues = new ChartValues<double>(dataList);
+
+                    var line = new LineSeries()
+                    {
+                        Title = "EUR/USD:",
+                        LineSmoothness = 0,
+                        Values = lineValues
+                    };
+
+                    parameter.Lines.Add(line);
                 }
             }
             catch (Exception exception)

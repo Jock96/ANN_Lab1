@@ -65,6 +65,7 @@
             {
                 weights.Add(random.NextDouble());
                 emptyWeights.Add(0d);
+                System.Threading.Thread.Sleep(10);
             }
 
             _outputNeuron = new NeuronModel(_inputData, weights)
@@ -109,6 +110,8 @@
             {
                 LastWeights = _outputNeuron.LastWeights
             };
+
+            _output = _outputNeuron.Output;
         }
     }
 }

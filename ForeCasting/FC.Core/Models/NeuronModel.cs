@@ -1,5 +1,6 @@
 ﻿namespace FC.Core.Models
 {
+    using FC.BL.Helpers;
     using System;
     using System.Collections.Generic;
 
@@ -83,10 +84,7 @@
             for (int index = 0; index < inputs.Count; ++index)
                 summary += inputs[index] * weights[index];
 
-            //Сигмоид
-            //Math.Pow(1 + Math.Exp(-summary), -1);
-
-            return (Math.Exp(2 * summary) - 1) / (Math.Exp(2 * summary) + 1);
+            return MathFunctionsHelper.HTanFunction(summary);
         }
     }
 }
