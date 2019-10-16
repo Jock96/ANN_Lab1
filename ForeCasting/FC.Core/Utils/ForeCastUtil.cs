@@ -50,9 +50,6 @@
         {
             var neuronCount = _hiddenLayerData.Count;
 
-            if (neuronCount.Equals(0))
-                MessageBox.Show("Операция для 0 нейронов не реализована!");
-
             var hiddenLayer = new HiddenLayer(_data, neuronCount);
             hiddenLayer.SwitchToForeCast(_hiddenLayerData);
 

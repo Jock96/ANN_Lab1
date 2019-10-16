@@ -8,6 +8,7 @@
 
     using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
 
     /// <summary>
     /// Инструмент сохранения данных.
@@ -48,6 +49,10 @@
         private static void HiddenLayerSave(string saveDirectory, HiddenLayer hiddenLayer)
         {
             var neurons = hiddenLayer.GetLayerNeurons();
+
+            if (!neurons.Any())
+                return;
+
             var indexOfNeuron = 0;
 
             foreach (var neuron in neurons)

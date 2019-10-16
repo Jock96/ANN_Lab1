@@ -29,12 +29,12 @@
 
             var countOfLayerNeurons = int.Parse(parameter.CountOfHiddenLayerNeurons);
 
-            if (countOfLayerNeurons.Equals(0))
-            {
-                MessageBox.Show("Операция для 0 нейронов не реализована.");
+            //if (countOfLayerNeurons.Equals(0))
+            //{
+            //    MessageBox.Show("Операция для 0 нейронов не реализована.");
 
-                return;
-            }
+            //    return;
+            //}
 
             var alphaString = string.Empty;
             var epsilonString = string.Empty;

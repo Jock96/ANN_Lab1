@@ -161,6 +161,12 @@
         /// <param name="dataSet">Датасет.</param>
         public void UpdateData(List<double> dataSet)
         {
+            if (_countOfNeurons.Equals(0))
+            {
+                _output = dataSet;
+                return;
+            }
+
             var updatedNeurons = new List<NeuronModel>();
 
             foreach (var neuron in _neurons)

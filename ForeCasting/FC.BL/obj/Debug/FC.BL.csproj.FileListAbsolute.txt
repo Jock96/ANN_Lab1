@@ -1,6 +1,6 @@
 C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.BL\bin\Debug\FC.BL.dll
 C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.BL\bin\Debug\FC.BL.pdb
-C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.BL\obj\Debug\FC.BL.csprojResolveAssemblyReference.cache
 C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.BL\obj\Debug\FC.BL.csproj.CoreCompileInputs.cache
 C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.BL\obj\Debug\FC.BL.dll
 C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.BL\obj\Debug\FC.BL.pdb
+C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.BL\obj\Debug\FC.BL.csprojAssemblyReference.cache

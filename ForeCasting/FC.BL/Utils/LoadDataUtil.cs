@@ -7,6 +7,7 @@
     using System.Text;
     using System.Windows;
     using System;
+    using System.Linq;
 
     /// <summary>
     /// Инструмент загрузки данных.

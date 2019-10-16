@@ -1,7 +1,6 @@
 C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\bin\Debug\FC.UI.exe.config
 C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\bin\Debug\FC.UI.exe
 C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\bin\Debug\FC.UI.pdb
-C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\obj\Debug\FC.UI.csprojResolveAssemblyReference.cache
 C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\obj\Debug\MainWindow.g.cs
 C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\obj\Debug\App.g.cs
 C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\obj\Debug\FC.UI_MarkupCompile.cache
@@ -23,3 +22,5 @@ C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\bin\
 C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\bin\Debug\LiveCharts.xml
 C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\bin\Debug\LiveCharts.Wpf.pdb
 C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\bin\Debug\LiveCharts.Wpf.xml
+C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\obj\Debug\FC.UI.csprojAssemblyReference.cache
+C:\Лабы\Учёба (3 семестр)\АНС\ANN_Lab1\ForeCasting\FC.UI\obj\Debug\FC.UI.csproj.CopyComplete

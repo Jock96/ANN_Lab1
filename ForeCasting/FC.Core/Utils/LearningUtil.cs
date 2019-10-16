@@ -161,10 +161,58 @@
         private void Backpropagation(HiddenLayer hiddenLayer, OutputLayer outputLayer,
             int iterationIndex)
         {
+            if (!hiddenLayer.GetLayerNeurons().Any())
+            {
+                UpdateWeightsWithouHiddenLayer(outputLayer, iterationIndex);
+                return;
+            }
+
             HiddenToOutputDeltasWork(outputLayer, hiddenLayer);
             HiddentToOutputWeightsWork(outputLayer, hiddenLayer);
 
             InputToHiddenWeightsWork(hiddenLayer, iterationIndex);
+        }
+
+        /// <summary>
+        /// Обновить веса без скрытого слоя.
+        /// </summary>
+        /// <param name="outputLayer">Выходной слой.</param>
+        /// <param name="iterationIndex">Индекс итерации.</param>
+        private void UpdateWeightsWithouHiddenLayer(OutputLayer outputLayer, int iterationIndex)
+        {
+            var outputOfNeuron = outputLayer.GetOutput;
+
+            var deltaOfOutputNeuron = GetOutputLayerNeuronDelta(outputOfNeuron);
+
+            var currentInputs = _dataSets[iterationIndex];
+            var gradients = new List<double>();
+
+            foreach (var input in currentInputs)
+            {
+                var gradient = input * deltaOfOutputNeuron;
+                gradients.Add(gradient);
+            }
+
+            var outputWeights = outputLayer.GetNeuron.Weights;
+            var weightIndex = 0;
+
+            var weightsDelta = new List<double>();
+
+            foreach (var weight in outputWeights)
+            {
+                var weightDelta = _configuration.Epsilon * gradients[weightIndex] +
+                    _configuration.Alpha * outputLayer.GetNeuron.LastWeights[weightIndex];
+
+                weightsDelta.Add(weightDelta);
+                weightIndex++;
+            }
+
+            var newWeights = new List<double>();
+
+            for (var i = 0; i < outputLayer.GetNeuron.Weights.Count; ++i)
+                newWeights.Add(outputLayer.GetNeuron.Weights[i] + weightsDelta[i]);
+
+            outputLayer.UpdateWeightsOfNeuronInLayer(newWeights);
         }
 
         /// <summary>
